@@ -1,0 +1,156 @@
+div,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+table,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+textarea,
+span,
+strong,
+em,
+b,
+i,
+u,
+a,
+img,
+* {
+    padding: 0;
+    margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+body {
+    font-family: "宋体";
+    font-size: 12px;
+    color: #000;
+    background-color: #fff;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 14px;
+}
+
+img {
+    border: none;
+}
+
+img,
+input,
+textarea,
+select,
+output {
+    vertical-align: middle;
+}
+
+a {
+    background: transparent;
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #006699;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* 设置字体图标*/
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('fonts/iconfont.eot');
+    src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('fonts/iconfont.woff') format('woff'), url('fonts/iconfont.ttf') format('truetype'), url('fonts/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*默认颜色*/
+
+.red {
+    color: red;
+}
+
+.gray {
+    color: gray;
+}
+
+.eee {
+    color: #eee;
+}
+
+.fff {
+    color: #fff;
+}
+
+.black {
+    color: #000;
+}
+
+.bg-000 {
+    background: #000;
+}
+
+.bg-fff {
+    background: #fff;
+}
+
+.bg-eee {
+    background: #eee;
+}

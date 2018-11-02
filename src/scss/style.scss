@@ -1,0 +1,131 @@
+@import "mixin.scss";
+@import "common.scss";
+$w:100%;
+$h:100%;
+.wrapper {
+    width: 100%;
+    height: 100%;
+    @include box_flex;
+    @include justify(space-between);
+    @include direction(column);
+}
+
+header {
+    width: 100%;
+    height: pxTorem(44px);
+    padding: 0 pxTorem(10px);
+    @include sizing;
+    @include box_flex;
+    @include justify(space-between);
+    @include align;
+    span:nth-child(1) {
+        display: inline-block;
+        width: pxTorem(40px);
+        height: pxTorem(40px);
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+    span.fdj {
+        display: inline-block;
+        width: pxTorem(40px);
+        height: pxTorem(40px);
+        line-height: pxTorem(40px);
+        text-align: center;
+        i.iconfont {
+            font-size: pxTorem(25px);
+        }
+    }
+    .bs {
+        @include flex;
+        margin: 0 pxTorem(10px);
+        overflow: hidden;
+        .list {
+            @include box_flex;
+            @include justify(space-between);
+            @include align;
+            font-size: pxTorem(18px);
+            color: gray;
+            width: 150%;
+            li {
+                margin-right: pxTorem(10px);
+            }
+            li.active {
+                color: #53A7A1;
+            }
+        }
+    }
+}
+
+section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    @include flex;
+    .swiper-container {
+        width: 100%;
+        height: pxTorem(150px);
+    }
+    .swiper-wrapper,
+    .swiper-slide {
+        width: 100%;
+        height: 100%;
+        img {
+            width: 95%;
+            height: 100%;
+            margin-left: pxTorem(9px);
+        }
+    }
+    .content {
+        width: 100%;
+        padding: 0 pxTorem(10px);
+        @include sizing;
+        dl {
+            padding: pxTorem(15px) 0;
+            dd {
+                width: pxTorem(230px);
+                height: 100%;
+                font-size: pxTorem(20px);
+                padding-right: pxTorem(10px);
+                p:nth-child(2) {
+                    color: gray;
+                    font-size: pxTorem(16px);
+                    margin-top: pxTorem(20px);
+                }
+            }
+            height: pxTorem(100px);
+            border-bottom: solid pxTorem(1px) #ccc;
+            @include box_flex;
+            img {
+                width: pxTorem(130px);
+                height: pxTorem(100px);
+                border-radius: pxTorem(10px);
+            }
+        }
+    }
+}
+
+footer {
+    @include box_flex;
+    @include justify(space-around);
+    @include align;
+    width: 100%;
+    height: pxTorem(50px);
+    border-top: solid pxTorem(1px) #ccc;
+    box-shadow: 0 0 pxTorem(10px) pxTorem(2px) #eee;
+    i.iconfont {
+        font-size: pxTorem(24px);
+    }
+    dt {
+        margin-top: pxTorem(3px);
+    }
+    dl {
+        text-align: center;
+        color: #7C898B;
+    }
+    dl.active {
+        color: #B79D7B;
+    }
+}

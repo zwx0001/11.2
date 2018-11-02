@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/fonts/iconfont.css">
+    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="./css/swiper.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <span><img src="./images/2880.jpg_wh300.jpg" alt=""></span>
+            <div class="bs">
+                <ul class="list">
+                    <li class="active">推荐</li>
+                    <li>热点</li>
+                    <li>视频</li>
+                    <li>版本</li>
+                    <li>官网</li>
+                    <li>娱乐</li>
+                    <li>新闻</li>
+                </ul>
+            </div>
+            <span class="fdj"><i class="iconfont icon-fangdajing"></i></span>
+        </header>
+        <section>
+            <div class="box">
+                <div class="swiper-container container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide slide1"><img src="./images/3962.jpg_wh300.jpg" alt=""></div>
+                        <div class="swiper-slide slide2"><img src="./images/4624.jpg_wh300.jpg" alt=""></div>
+                        <div class="swiper-slide slide3"><img src="./images/4875.jpg_wh300.jpg" alt=""></div>
+                        <div class="swiper-slide slide4"><img src="./images/5799.jpg_wh300.jpg" alt=""></div>
+                    </div>
+                    <div class="swiper-pagination pagination"></div>
+                </div>
+                <div class="content">
+                    <!-- <dl>
+                        <dd>
+                            <p>新闻哥：dapa竟长，现在广大明星被"雪藏"</p>
+                            <p>掌盟@新哥哥 48万阅</p>
+                        </dd>
+                        <dt><img src="images/2880.jpg_wh300.jpg" alt=""></dt>
+                    </dl>
+                    <dl>
+                        <dd>新闻哥：dapa竟长，现在广大明星被"雪藏"</dd>
+                        <dt><img src="images/2880.jpg_wh300.jpg" alt=""></dt>
+                    </dl>
+                    <dl>
+                        <dd>新闻哥：dapa竟长，现在广大明星被"雪藏"</dd>
+                        <dt><img src="images/2880.jpg_wh300.jpg" alt=""></dt>
+                    </dl>
+                    <dl>
+                        <dd>新闻哥：dapa竟长，现在广大明星被"雪藏"</dd>
+                        <dt><img src="images/2880.jpg_wh300.jpg" alt=""></dt>
+                    </dl>
+                    <dl>
+                        <dd>新闻哥：dapa竟长，现在广大明星被"雪藏"</dd>
+                        <dt><img src="images/2880.jpg_wh300.jpg" alt=""></dt>
+                    </dl>
+                    <dl>
+                        <dd>新闻哥：dapa竟长，现在广大明星被"雪藏"</dd>
+                        <dt><img src="images/2880.jpg_wh300.jpg" alt=""></dt>
+                    </dl> -->
+                </div>
+            </div>
+        </section>
+        <footer>
+            <dl class="active">
+                <dt><i class="iconfont icon-quanbudingdan-01"></i></dt>
+                <dd>资询</dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-shouye"></i></dt>
+                <dd>首页</dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-gongzuo"></i></dt>
+                <dd>菜单</dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-kefu"></i></dt>
+                <dd>客服</dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-wode"></i></dt>
+                <dd>我的</dd>
+            </dl>
+        </footer>
+    </div>
+    <script src="./libs/flexible.js"></script>
+    <script src="./libs/zepto.js"></script>
+    <script src="./libs/better-scroll.js"></script>
+    <script src="./libs/swiper.js"></script>
+    <script>
+        addEvent();
+        ajax();
+        var myBScroll = new BScroll('.bs', {
+            probetype: 2,
+            click: true,
+            scrollX: true
+        });
+        var myBScroll2 = new BScroll('section', {
+            probetype: 2,
+            click: true,
+        });
+        var mySwiper = new Swiper('.container', {
+            pagination: {
+                el: '.pagination',
+                clickable: true
+            },
+            autoplay: true
+        })
+
+        function addEvent() {
+            $('header li').click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+            $('footer dl').click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        }
+
+        function ajax() {
+            $.ajax({
+                url: '/api/getData',
+                success: function(res) {
+                    res = JSON.parse(res);
+                    if (res.code === 0) {
+                        render(res);
+                    } else {
+                        alert('请求失败!');
+                    }
+                }
+            })
+        }
+
+        function render(data) {
+            var str = '';
+            data.data.map(function(item) {
+                str += `
+                    <dl>
+                        <dd>
+                            <p>${item.news}</p>
+                            <p>${item.num}</p>
+                        </dd>
+                        <dt><img src="images/${item.img}" alt=""></dt>
+                    </dl>
+                `;
+            });
+            $('.content').html(str);
+        }
+    </script>
+</body>
+
+</html>
